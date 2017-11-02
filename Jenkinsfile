@@ -16,7 +16,7 @@ pipeline {
         
       }
     }
-    stage('') {
+    stage('Building and pushing Vote Image') {
       steps {
         script {
           node
@@ -25,7 +25,7 @@ pipeline {
               
               
               git 'https://github.com/Imransysg/example-voting-app.git/'
-              stage "Building and pushing Vote Image"
+              
               def vote_img = docker.build('dockeradmin/voting-app-vote','./vote').push('latest')
             }
           }
