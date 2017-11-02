@@ -33,5 +33,20 @@ pipeline {
         
       }
     }
+    stage('Building and pushing Worker Image') {
+      steps {
+        script {
+          node
+          {
+            docker.withRegistry('https://10.1.53.4/','dtr-login'){
+              
+              git 'https://github.com/Imransysg/example-voting-app.git/'
+              def worker_img = docker.build('dockeradmin/voting-app-worker','./worker').push('latest')
+            }
+          }
+        }
+        
+      }
+    }
   }
 }
