@@ -8,7 +8,7 @@ pipeline {
           {
             docker.withRegistry('https://10.1.53.4/','dtr-login'){
               // dtr-login is a login ID in credentials
-              stage "syncing files"
+              
               git 'https://github.com/Imransysg/example-voting-app.git/'
             }
           }
