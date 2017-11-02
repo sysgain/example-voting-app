@@ -15,3 +15,6 @@ node
         def result_img = docker.build('dockeradmin/voting-app-result','./result').push('latest')
     }
 }
+
+
+
