@@ -51,7 +51,13 @@ pipeline {
     stage('Building and pushing Result Image') {
       steps {
         script {
-          def result_img = docker.build('dockeradmin/voting-app-result','./result').push('latest')
+          node
+          {
+            docker.withRegistry('https://10.1.53.4/','dtr-login'){
+              
+              def result_img = docker.build('dockeradmin/voting-app-result','./result').push('latest')
+            }
+          }
         }
         
       }
