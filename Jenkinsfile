@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('syncing files') {
       steps {
-        sh 'git \'https://github.com/reshma-k/example-voting-app.git/\''
+        sh 'https://github.com/Imransysg/example-voting-app'
       }
     }
   }
