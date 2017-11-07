@@ -40,6 +40,11 @@ pipeline {
             echo 'alpha'
           }
         }
+        stage('stg') {
+          steps {
+            echo 'stg'
+          }
+        }
       }
     }
     stage('Worker Image') {
