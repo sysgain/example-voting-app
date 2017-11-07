@@ -42,7 +42,19 @@ pipeline {
         }
         stage('stg') {
           steps {
-            echo 'stg'
+            script {
+              node
+              {
+                docker.withRegistry('https://10.1.53.13/','dtr-login'){
+                  // dtr-login is a login ID in credentials
+                  
+                  git 'https://github.com/Imransysg/example-voting-app.git/'
+                  def vote_img = docker.build('dockeradmin/voting-app-vote','./vote').push('latest')
+                  
+                }
+              }
+            }
+            
           }
         }
       }
