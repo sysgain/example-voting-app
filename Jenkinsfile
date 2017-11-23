@@ -6,7 +6,7 @@ pipeline {
         script {
           node
           {
-            docker.withRegistry('https://10.1.53.13/','dtr-login'){
+            docker.withRegistry('https://dtrlb-adockersb.westus.cloudapp.azure.com/','dtr-login'){
               // dtr-login is a login ID in credentials
               git 'https://github.com/Imransysg/example-voting-app.git/'
               
@@ -40,7 +40,7 @@ pipeline {
             script {
               node
               {
-                docker.withRegistry('https://10.1.53.13/','dtr-login'){
+                docker.withRegistry('https://dtrlb-adockersb.westus.cloudapp.azure.com/','dtr-login'){
                   // dtr-login is a login ID in credentials
                   
                   git 'https://github.com/Imransysg/example-voting-app.git/'
@@ -59,7 +59,7 @@ pipeline {
         script {
           node
           {
-            docker.withRegistry('https://10.1.53.13/','dtr-login'){
+            docker.withRegistry('https://dtrlb-adockersb.westus.cloudapp.azure.com/','dtr-login'){
               git 'https://github.com/Imransysg/example-voting-app.git/'
               def worker_img = docker.build('dockeradmin/voting-app-worker','./worker').push('latest')
               
@@ -75,7 +75,7 @@ pipeline {
         script {
           node
           {
-            docker.withRegistry('https://10.1.53.13/','dtr-login'){
+            docker.withRegistry('https://dtrlb-adockersb.westus.cloudapp.azure.com/','dtr-login'){
               // dtr-login is a login ID in credentials
               git 'https://github.com/Imransysg/example-voting-app.git/'
               def result_img = docker.build('dockeradmin/voting-app-result','./result').push('latest')
