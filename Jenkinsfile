@@ -27,7 +27,7 @@ pipeline {
                 docker.withRegistry('https://dtrlb-adockersb.westus.cloudapp.azure.com/','dtr-login')
                 {
                   git 'https://github.com/Imransysg/example-voting-app.git/'
-                  def vote_img = docker.build('dockeradmin/voting-app-vote','./vote').push('latest')
+                  def vote_img = docker.build('ddcadmin/voting-app-vote','./vote').push('latest')
                 }
                 
               }
@@ -44,7 +44,7 @@ pipeline {
                   // dtr-login is a login ID in credentials
                   
                   git 'https://github.com/Imransysg/example-voting-app.git/'
-                  def vote_img = docker.build('dockeradmin/voting-app-vote','./vote').push('latest')
+                  def vote_img = docker.build('ddcadmin/voting-app-vote','./vote').push('latest')
                   
                 }
               }
@@ -61,7 +61,7 @@ pipeline {
           {
             docker.withRegistry('https://dtrlb-adockersb.westus.cloudapp.azure.com/','dtr-login'){
               git 'https://github.com/Imransysg/example-voting-app.git/'
-              def worker_img = docker.build('dockeradmin/voting-app-worker','./worker').push('latest')
+              def worker_img = docker.build('ddcadmin/voting-app-worker','./worker').push('latest')
               
             }
             
@@ -78,7 +78,7 @@ pipeline {
             docker.withRegistry('https://dtrlb-adockersb.westus.cloudapp.azure.com/','dtr-login'){
               // dtr-login is a login ID in credentials
               git 'https://github.com/Imransysg/example-voting-app.git/'
-              def result_img = docker.build('dockeradmin/voting-app-result','./result').push('latest')
+              def result_img = docker.build('ddcadmin/voting-app-result','./result').push('latest')
               
             }
           }
